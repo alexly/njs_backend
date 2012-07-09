@@ -1,0 +1,346 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Fugu</title>
+<script src="//www.google.com/jsapi"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<link rel="stylesheet" href="//twitter.github.com/bootstrap/1.4.0/bootstrap.min.css" />
+<script type="text/javascript" src="libs/ember-0.9.8.1.min.js"></script>
+<!--script type="text/javascript" src="app.js"></scrip-->
+
+</head>
+<body>
+<div class="topbar">
+	<div class="fill">
+		<div class="container">
+          <a class="brand" href="index.php">Fugu</a>
+          <ul class="nav">
+            <li class="active"><a href="http://www.jensbits.com/">Home</a></li>
+          </ul>
+        </div>
+    </div>
+</div>
+<div class="container">
+    
+    <div class="hero-unit">
+            <h1>Sign In</h1>
+            <p>You can punch into the Google Analytics Core Reporting (Data Export) API, pull out some stats, and stuff them into some nice graphical charts using Google Chart Visualizations. </p>
+            <p><a class="btn primary large" href="https://www.google.com/accounts/AuthSubRequest?next=http://109.195.171.0/index.php&scope=https://www.googleapis.com/auth/analytics.readonly&secure=0&session=1">Authenticate using AuthSub through Google.</a></p>
+            <p><a class="btn primary large" href="http://oauth.vk.com/authorize?client_id=3004649&redirect_uri=http://109.195.171.0/index.php//vklogin&response_type=code" title="Зайти через ВКонтакте"></p>
+            <p>ClientLogin form is not shown for security reasons. Download demo code and run locally only.</p>      
+            <p><a href="localhost/views/users.html">Return to post on jensbits.com</a></p>
+    </div>
+    
+    <footer>
+    </footer> 
+    
+    </div>
+    
+    <script src="vendor.js" type="text/javascript"></script>
+    <script src="sample.js" type="text/javascript"></script>
+    <script src="prettify.js" type="text/javascript"></script>
+    
+</body>
+
+
+  <body onload="prettyPrint()">
+
+    <div class="container">
+
+      <div class="content">
+        <div class="page-header">
+          <h1>Ember Bootstrap</h1>
+          <p> A set of UI elements styled using Twitter Boostrap toolkit
+          to use with Ember.js</p>
+        </div>
+        <div class="row">
+          <section>
+            <h2>Modal panes</h2>
+            <pre class="prettyprint linenums">
+Bootstrap.ModalPane.popup({
+  heading: "Sample modal pane",
+  message: "Sample message",
+  primary: "OK",
+  secondary: "Cancel",
+  showBackdrop: true,
+  callback: function(opts, event) {
+    if (opts.primary) {
+     // primary button was pressed
+    } else if (opts.secondary) {
+      // secondary button was pressed
+    } else {
+      // close was pressed
+    }
+  }
+}); </pre>
+            <h4>Sample</h4>
+            <script type="text/x-handlebars">
+              {{#view Ember.Button class="btn" action="popup"
+                  target="SampleApp.modalPaneController"}}Show me the
+              mighty modal pane{{/view}}
+            </script>
+          </section>
+
+          <section>
+            <h2>Radio button groups</h2>
+            <pre class="prettyprint linenums">
+Bootstrap.RadioButtonGroup.create({
+  content: ["A", "B", "C"],
+  allowsEmptySelection: true
+}).append(); </pre>
+            <h4>Sample</h4>
+            <script type="text/x-handlebars">
+              <div class="well">
+                {{view Bootstrap.RadioButtonGroup
+                    allowsEmptySelection=true
+                    selectionBinding="SampleApp.buttonGroupController.selection"
+                    contentBinding="SampleApp.buttonGroupController.content"}}
+              </div>
+              <p>Selected button: {{SampleApp.buttonGroupController.selection}}</p>
+            </script>
+
+          <section>
+            <h2>Nav List</h2>
+            <pre class="prettyprint linenums">
+Bootstrap.NavList.create({
+  content: ["A", "B", "C"],
+  selectionBinding: "App.navListController.selection"
+}).append(); </pre>
+            <h4>Sample</h4>
+            <script type="text/x-handlebars">
+              <div class="well" style="padding:12px 0;">
+                {{view Bootstrap.NavList
+                    contentBinding="SampleApp.navListController.content"
+                    selectionBinding="SampleApp.navListController.selection"}}
+              </div>
+            </script>
+
+          <section>
+            <h2>Tabs</h2>
+            <pre class="prettyprint linenums">
+Bootstrap.Tabs.create({
+  content: ["A", "B", "C"],
+  selectionBinding: "App.tabsController.selection"
+}).append(); </pre>
+            <h4>Sample</h4>
+            <script type="text/x-handlebars">
+              {{view Bootstrap.Tabs
+                  contentBinding="SampleApp.tabsController.content"
+                  selectionBinding="SampleApp.tabsController.selection"}}
+              <p>Selected tab:
+              {{SampleApp.tabsController.selection}}</p>
+            </script>
+
+            <h3>Stacked tabs</h3>
+            <pre class="prettyprint linenums">
+Bootstrap.Tabs.create({
+  content: ["A", "B", "C"],
+  isStacked: true,
+  selectionBinding: "App.tabsController.selection"
+}).append(); </pre>
+            <h4>Sample</h4>
+            <script type="text/x-handlebars">
+              {{view Bootstrap.Tabs
+                  isStacked=true
+                  contentBinding="SampleApp.stackedTabsController.content"
+                  selectionBinding="SampleApp.stackedTabsController.selection"}}
+              <p>Selected tab:
+              {{SampleApp.stackedTabsController.selection}}</p>
+            </script>
+          </section>
+
+          <section>
+            <h2>Pills</h2>
+            <pre class="prettyprint linenums">
+Bootstrap.Pills.create({
+  content: ["A", "B", "C"],
+  selectionBinding: "App.pillsController.selection"
+}).append(); </pre>
+            <h4>Sample</h4>
+            <script type="text/x-handlebars">
+              {{view Bootstrap.Pills
+                  contentBinding="SampleApp.pillsController.content"
+                  selectionBinding="SampleApp.pillsController.selection"}}
+              <p>Selected pill:
+              {{SampleApp.pillsController.selection}}</p>
+            </script>
+
+            <h3>Stacked pills</h3>
+            <pre class="prettyprint linenums">
+Bootstrap.Pills.create({
+  content: ["A", "B", "C"],
+  isStacked: true,
+  selectionBinding: "App.stackedPillsController.selection"
+}).append(); </pre>
+            <h4>Sample</h4>
+            <script type="text/x-handlebars">
+              {{view Bootstrap.Pills
+                  isStacked=true
+                  contentBinding="SampleApp.stackedPillsController.content"
+                  selectionBinding="SampleApp.stackedPillsController.selection"}}
+              <p>Selected pill:
+              {{SampleApp.stackedPillsController.selection}}</p>
+            </script>
+          </section>
+
+          <section>
+            <h2>Alert messages</h2>
+            <pre class="prettyprint linenums">
+Bootstrap.AlertMessage.create({
+  message: "Sample alert message",
+  type: "warning"
+}).append(); </pre>
+            <h4>Sample</h4>
+            <script type="text/x-handlebars">
+              {{view Bootstrap.AlertMessage message="What a sweet alert message."}}
+              {{view Bootstrap.AlertMessage type="error" message="What a sweet alert message."}}
+              {{view Bootstrap.AlertMessage type="success" message="What a sweet alert message."}}
+              {{view Bootstrap.AlertMessage type="info" message="What a sweet alert message."}}
+            </script>
+          </section>
+
+          <section>
+            <h2>Block alert messages</h2>
+            <pre class="prettyprint linenums">
+Bootstrap.BlockAlertMessage.create({
+  message: "Sample alert message",
+  type: "warning"
+}).append(); </pre>
+            <h4>Sample</h4>
+            <script type="text/x-handlebars">
+              {{#view Bootstrap.BlockAlertMessage}}
+                <p>This is a block message</p>
+                <p>
+                  {{#view Bootstrap.Button type="danger"}}Yes{{/view}}
+                  {{#view Bootstrap.Button}}No{{/view}}
+                </p>
+              {{/view}}
+            </script>
+          </section>
+
+          <section>
+            <h2>Progress bars</h2>
+            <pre class="prettyprint linenums">
+Bootstrap.ProgressBar.create({
+  isStriped: true,
+  progress: 50
+}).append(); </pre>
+            <h4>Sample</h4>
+            <script type="text/x-handlebars">
+              {{view Bootstrap.ProgressBar isStriped=true isAnimated=true 
+                  progressBinding="SampleApp.progressController.progress"}}
+            </script>
+          </section>
+
+          <section>
+            <h2>Badges</h2>
+            <pre class="prettyprint linenums">
+Bootstrap.Badge.create({
+  contentBinding: 'SampleApp.TodoController.completed',
+  type: 'success'
+}).append(); </pre>
+            <h4>Sample</h4>
+              <script type="text/x-handlebars">
+                {{view Bootstrap.Badge type="success" contentBinding="SampleApp.TodoController.completed"}}
+              </script>
+          </section>
+
+          <section>
+            <h2>Labels</h2>
+            <pre class="prettyprint linenums">
+Bootstrap.Label.create({
+  content: 'Important',
+  type: 'important'
+}).append(); </pre>
+            <h4>Sample</h4>
+              <script type="text/x-handlebars">
+                {{view Bootstrap.Label type="important" content="Important"}}
+              </script>
+          </section>
+
+          <section>
+            <h2>Wells</h2>
+            <pre class="prettyprint linenums">
+Bootstrap.Well.create({
+  content: 'Important note about Ember and Bootstrap'
+}).append(); </pre>
+            <h4>Sample</h4>
+            <script type="text/x-handlebars">
+              {{view Bootstrap.Well content="Important note about Ember and Bootstrap" }}
+            </script>
+          </section>
+
+          <section>
+            <h2>Paginations</h2>
+            <pre class="prettyprint linenums">
+Bootstrap.Pagination.create({
+  content: ['1', '2', '3'],
+  selection: '2'
+}).append(); </pre>
+            <h4>Sample</h4>
+              <script type="text/x-handlebars">
+                {{view Bootstrap.Pagination contentBinding="SampleApp.paginationController.content"selectionBinding="SampleApp.paginationController.selection"}}
+              </script>
+          </section>
+
+          <section>
+            <h2>Pagers</h2>
+            <pre class="prettyprint linenums">
+Bootstrap.Pager.create({
+  content: ['< previous', 'next >']
+}).append(); </pre>
+            <h4>Sample</h4>
+              <script type="text/x-handlebars">
+                {{view Bootstrap.Pager contentBinding="SampleApp.pagerController.content"}}
+              </script>
+          </section>
+
+          <section>
+            <h2>Breadcrumbs</h2>
+            <pre class="prettyprint linenums">
+Bootstrap.Breadcrumb.create({
+  contentBinding: 'SampleApp.BreadcrumbsController.content'
+}).append(); 
+            </pre>
+            <h4>Sample</h4>
+              <script type="text/x-handlebars">
+                {{view Bootstrap.Breadcrumb contentBinding="SampleApp.breadcrumbsController.content"}}
+              </script>
+          </section>
+
+          <section>
+            <h2>Download</h2>
+            <p>
+              You can download this project in either
+              <a href="https://github.com/jzajpt/ember-bootstrap/zipball/master">zip</a> or
+              <a href="https://github.com/jzajpt/ember-bootstrap/tarball/master">tar formats.
+            </p>
+            <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
+              by running:
+              <pre>$ git clone git://github.com/jzajpt/ember-bootstrap</pre>
+            </p>
+          </section>
+
+        </div>
+      </div>
+
+      <footer>
+        <p>&copy; Jiri Zajpt & Ember-Bootstrap contributors</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    <script src="vendor.js" type="text/javascript"></script>
+    <script src="sample.js" type="text/javascript"></script>
+    <script src="prettify.js" type="text/javascript"></script>
+    <script type="text/javascript" src="consts.js"></script>
+    <script type="text/javascript" src="/util.js"></script>
+    <script type="text/javascript" src="states/auth.js"></script>
+    <script type="text/javascript" src="states/root.js"></script>
+    <script type="text/javascript" src="controllers/wssession.js"></script>
+    <script type="text/javascript" src="controllers/cookie.js"></script>
+  </body>
+  
+</html>

@@ -1,0 +1,20 @@
+{
+    "name" : "engine",
+    "description" : "(pending)",
+    "version" : "0.1",
+    "main" : "go.js",
+    "author" : {
+        "name" : "Alexander Lyalin",
+        "email" : "alexandr.lyalin@gmail.com"
+    },
+    "keywords" : 
+        [
+            ""
+        ],
+    "licenses" : {
+        "type" : "none"
+    },
+    "bugs" : {
+        "web" : "null"
+    }
+}

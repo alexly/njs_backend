@@ -1,0 +1,70 @@
+<html>
+<head>
+<title></title>
+
+<link rel='stylesheet' type='text/css' href='css/jquery-ui-1.8.21.custom.css'/>    
+<link rel='stylesheet' type='text/css' href='css/fugu.css'>
+
+<script type="text/javascript" src="libs/jquery.min.js"></script>
+<script type='text/javascript' src='libs/jquery-ui-1.8.21.custom.min.js'></script>
+<script type='text/javascript' src='libs/jquery.blockui.js'></script>
+<script type="text/javascript" src="libs/ember-0.9.8.1.min.js"></script>
+<script src="http://crypto-js.googlecode.com/svn/tags/3.0.2/build/rollups/sha1.js"></script>
+
+<script type="text/javascript" src="consts.js"></script>
+<script type="text/javascript" src="util.js"></script>
+<script type="text/javascript" src="views/tabbase.js"></script>
+<script type="text/javascript" src="states/auth.js"></script>
+<script type="text/javascript" src="states/root.js"></script>
+<script type="text/javascript" src="controllers/wssession.js"></script>
+<script type="text/javascript" src="controllers/cookie.js"></script>
+<script type="text/javascript" src="app.js"></script>
+
+</head>
+<body>
+   
+<script type="text/x-handlebars" data-template-name="pages_view">
+
+<ul>
+    <li><a href="views/home.html" title="Home"> Home </a></li>
+    <!--li><a href="#Home" title="Home"> Home </a></li-->
+    <li><a href="views/editor.html" title="Editor"> Editor </a></li>
+    <li><a href="views/support.html" title="Support"> Profile </a></li>
+    <li><a href="views/users.html" title="Users"> Users </a></li>
+</ul>    
+
+</script>
+
+<script type="text/x-handlebars" data-template-name="auth_view">
+    <ul>
+        <li><a href="#singIn">{{unbound SignInTitle}}</a></li>
+        <li><a href="#registration">{{unbound RegistrationTitle}}</a></li>
+        <li><a href="#fogotpass">{{unbound FogotPassTitle}}</a></li>
+    </ul>
+    <div id="singIn">
+        <fieldset>
+            <label>Email: {{view Ember.TextField valueBinding="email" class="w_auto"}} </label>
+            <label>Pasword: {{view Ember.TextField type="password" valueBinding="password" class="w_auto"}} </label>
+            <label>{{view Ember.Checkbox value="true" checkedBinding="rememberMe"}} Remember me</label>
+        </fieldset>
+    </div>
+    <div id="registration">
+        <fieldset>
+            <label>Email: {{view Ember.TextField valueBinding="email" class="w_auto"}} </label>
+            <label>Login: {{view Ember.TextField valueBinding="login" class="w_auto"}} </label>
+            <label>Password: {{view Ember.TextField type="password" valueBinding="password" class="w_auto"}} </label>
+            <label>Repeat password {{view Ember.TextField type="password" valueBinding="repeat_password" class="w_auto"}} </label>
+        </fieldset>
+    </div>
+    <div id="fogotpass">
+        <fieldset>
+            <label>Email: {{view Ember.TextField valueBinding="email" class="w_auto"}} </label>    
+        </fieldset>
+    </div>
+
+	<div id="message" class="ui-widget-content ui-corner-all"  style="display:none">
+	</div>
+</script>
+
+</body>
+</html>

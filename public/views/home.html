@@ -1,0 +1,33 @@
+<h1>Demo</h1>
+
+<canvas id="canvas" width="640px" height="480px" ></canvas>
+
+<script type="text/javascript">
+    
+       // http://paulirish.com/2011/requestanimationframe-for-smart-animating/
+    window.requestAnimFrame = (function(){
+          return  window.requestAnimationFrame       || 
+                  window.webkitRequestAnimationFrame || 
+                  window.mozRequestAnimationFrame    || 
+                  window.oRequestAnimationFrame      || 
+                  window.msRequestAnimationFrame     || 
+                  function(/* function */ callback, /* DOMElement */ element){
+                    window.setTimeout(callback, 1000 / 60);
+                  };
+    })();
+    
+    $(document).ready(function() {
+        
+        var ctx = document.getElementById("canvas").getContext("2d");
+
+        (function loop() {
+            ctx.clearRect(0, 0, 900, 700);
+            for (var id in world) {
+            var entity = world[id];
+            entity.draw(ctx);
+            }
+            requestAnimFrame(loop);
+        })();
+    });
+</script>
+

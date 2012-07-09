@@ -1,0 +1,40 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: url(./images/logo_fugu_large.png) no-repeat center center;
+    background-color:#73bacc;
+    overflow: hidden;
+}
+
+body {
+    padding-top: 1%;
+}
+		
+#canvas {
+    border-radius:10px 10px 10px 10px;
+    background-color:#3f7380;
+}
+
+.pages {
+    margin: auto;
+    height: 96%;
+    width: 95%;
+    opacity: 0.9;
+}
+
+.ui-dialog-titlebar-close {
+    display: none 
+}
+
+.login_dialog {
+    opacity: 0.83;
+}
+
+fieldset { 
+    padding:0; border:0; margin-top:25px; 
+}
+
+input.w_auto{
+    width:100%;
+}
